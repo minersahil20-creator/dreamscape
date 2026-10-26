@@ -1,0 +1,25 @@
+{
+  "name": "dreamscape",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A calm, supportive reflection space with a React frontend and Node backend.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm:server\" \"npm:client\"",
+    "server": "node --env-file-if-exists=.env server.js",
+    "client": "vite",
+    "build": "vite build",
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.1.2",
+    "vite": "^8.3.5"
+  }
+}
