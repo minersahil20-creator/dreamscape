@@ -204,12 +204,16 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV === 'production') {
-  const clientBuildPath = path.join(__dirname, 'dist');
-  app.use(express.static(clientBuildPath));
-  app.get('*', (_req, res) => res.sendFile(path.join(clientBuildPath, 'index.html')));
+if (require.main === module) {
+  if (process.env.NODE_ENV === 'production') {
+    const clientBuildPath = path.join(__dirname, 'dist');
+    app.use(express.static(clientBuildPath));
+    app.get('*', (_req, res) => res.sendFile(path.join(clientBuildPath, 'index.html')));
+  }
+
+  app.listen(PORT, () => {
+    console.log(`Dreamscape server listening on port ${PORT}`);
+  });
 }
 
-app.listen(PORT, () => {
-  console.log(`Dreamscape server listening on port ${PORT}`);
-});
+module.exports = app;
