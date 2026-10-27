@@ -199,6 +199,21 @@ button { color: inherit; }
 .grounded-sources a { padding: 8px 11px; border: 1px solid #e1e7de; border-radius: 8px; background: #fff; color: #586f5b; font-size: 9px; transition: background .2s ease; }
 .grounded-sources a:hover { background: #edf2e9; }
 .grounded-sources a span { margin-left: 6px; }
+.wikiquote-card { min-height: 0; }
+.wikiquote-card blockquote { margin-top: 20px; }
+.wikiquote-source { margin-top: auto; padding-top: 14px; color: #586f5b; font-size: 9px; }
+.wikiquote-source span { margin-left: 5px; }
+.wikiquote-redirect { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; max-width: 640px; margin: 0 auto 22px; padding: 11px 18px; border: 1px solid #cddbd1; border-radius: 10px; background: rgba(255,255,255,.72); font-size: 10px; color: #6a8278; }
+.wikiquote-redirect > span { font-weight: 500; }
+.wikiquote-redirect-link { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border: 1px solid #a5c3b3; border-radius: 7px; background: #edf5f0; color: #3d6b54; font-size: 10px; font-weight: 600; letter-spacing: .3px; transition: background .2s ease, transform .2s ease; }
+.wikiquote-redirect-link:hover { background: #d6ece0; transform: translateY(-1px); }
+.wikiquote-redirect-link span { font-size: 12px; }
+.wikiquote-redirect--bottom { justify-content: flex-end; margin: 18px 0 0; padding: 0; border: 0; background: transparent; }
+.wikiquote-redirect--bottom .wikiquote-redirect-link { font-size: 9px; }
+
+.quote-load-more { display: block; min-height: 40px; margin: 20px auto 0; padding: 0 16px; border: 1px solid #dce6dc; border-radius: 9px; background: rgba(255,255,255,.7); color: #52675a; font-size: 10px; cursor: pointer; }
+.quote-load-more:hover:not(:disabled) { background: #edf2e9; }
+.quote-load-more:disabled { opacity: .6; cursor: wait; }
 .web-results { margin: 0 0 48px; animation: rise-in .5s ease both; }
 .results-heading, .wisdom-library-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; color: #839187; font-size: 8px; letter-spacing: 1.6px; }
 .results-heading > span:last-child { letter-spacing: .4px; }
@@ -216,6 +231,7 @@ button { color: inherit; }
 .wisdom-card:nth-child(3n + 2) { animation-delay: .1s; }
 .wisdom-card:nth-child(3n) { animation-delay: .2s; }
 .wisdom-card-verse { background: #eff4e9; }
+.wisdom-card-inspired { background: #f6f0e9; }
 .wisdom-card-top { display: flex; justify-content: space-between; color: #829184; font-size: 8px; letter-spacing: 1.3px; }
 .wisdom-card-top span:last-child { font-size: 14px; }
 .wisdom-card blockquote { margin: 29px 0 16px; color: #34473a; font-family: var(--serif); font-size: 20px; line-height: 1.55; }
@@ -314,7 +330,14 @@ button { color: inherit; }
 [data-theme="dark"] .grounded-results { border-color: #3c4940; background: linear-gradient(145deg,#28332b,#222d26); }
 [data-theme="dark"] .grounded-response { color: #d1dfd0; }
 [data-theme="dark"] .grounded-sources { border-color: #3c4940; }
+[data-theme="dark"] .wikiquote-source { color: #c4d6e5; }
+[data-theme="dark"] .wikiquote-redirect { border-color: #3a4d42; background: rgba(30,42,33,.85); color: #8faF97; }
+[data-theme="dark"] .wikiquote-redirect-link { border-color: #4a6658; background: #253329; color: #a8d4b8; }
+[data-theme="dark"] .wikiquote-redirect-link:hover { background: #2f4438; }
+[data-theme="dark"] .quote-load-more { border-color: #455b70; background: #2d4257; color: #d5e2ed; }
+[data-theme="dark"] .quote-load-more:hover:not(:disabled) { background: #3a536c; }
 [data-theme="dark"] .wisdom-card-verse { background: #2d392f; }
+[data-theme="dark"] .wisdom-card-inspired { background: #382f29; }
 [data-theme="dark"] .wisdom-library-heading::before, [data-theme="dark"] .wisdom-library-heading::after { background: #3c4940; }
 [data-theme="dark"] .reflection-form label, [data-theme="dark"] .reflection-form h2, [data-theme="dark"] .reflection-list-heading h2 { color: #dce6da; }
 [data-theme="dark"] .reflection-form input, [data-theme="dark"] .reflection-form textarea { border-color: #435247; background: #202923; color: #e4e9e2; }
@@ -663,12 +686,16 @@ button { color: inherit; }
 .grounded-sources > span, .results-heading, .wisdom-library-heading { color: #73889d; }
 .grounded-sources a { border-color: #d8e3ec; background: #f9fcfe; color: #557697; }
 .grounded-sources a:hover { background: #e8f1f8; }
+.wikiquote-source { color: #557697; }
+.quote-load-more { border-color: #d7e3ed; background: rgba(250,253,255,.86); color: #405a72; }
+.quote-load-more:hover:not(:disabled) { background: #e8f1f8; }
 .web-result-card h2 { color: #354d64; }
 .web-result-snippet, .web-result-link { color: #71859a; }
 .wisdom-library-heading::before, .wisdom-library-heading::after { background: #d5e0ea; }
 .wisdom-card { border-color: #dce6ee; background: #fbfdfe; box-shadow: 0 7px 25px rgba(55,87,121,.045); }
 .wisdom-card:hover { box-shadow: 0 17px 38px rgba(55,87,121,.12); }
 .wisdom-card-verse { background: #e6eff6; }
+.wisdom-card-inspired { background: #f0eaf3; }
 .wisdom-card-top { color: #71879b; }
 .wisdom-card blockquote { color: #344b62; }
 .wisdom-translation { color: #718398; }
@@ -726,12 +753,19 @@ button { color: inherit; }
 [data-theme="dark"] .grounded-results { border-color: #455b70; background: linear-gradient(145deg,#2a3d50,#223447); }
 [data-theme="dark"] .grounded-response { color: #d5e2ed; }
 [data-theme="dark"] .grounded-sources { border-color: #455b70; }
+[data-theme="dark"] .wikiquote-source { color: #c4d6e5; }
+[data-theme="dark"] .wikiquote-redirect { border-color: #3a4d42; background: rgba(30,42,33,.85); color: #8faF97; }
+[data-theme="dark"] .wikiquote-redirect-link { border-color: #4a6658; background: #253329; color: #a8d4b8; }
+[data-theme="dark"] .wikiquote-redirect-link:hover { background: #2f4438; }
+[data-theme="dark"] .quote-load-more { border-color: #455b70; background: #2d4257; color: #d5e2ed; }
+[data-theme="dark"] .quote-load-more:hover:not(:disabled) { background: #3a536c; }
 [data-theme="dark"] .grounded-sources > span, [data-theme="dark"] .results-heading, [data-theme="dark"] .wisdom-library-heading { color: #aabaca; }
 [data-theme="dark"] .grounded-sources a { border-color: #455b70; background: #2d4257; color: #c4d6e5; }
 [data-theme="dark"] .grounded-sources a:hover { background: #3a536c; }
 [data-theme="dark"] .wisdom-library-heading::before, [data-theme="dark"] .wisdom-library-heading::after { background: #455b70; }
 [data-theme="dark"] .wisdom-card { border-color: #40566c; background: #2a3d50; box-shadow: 0 8px 27px rgba(0,0,0,.13); }
 [data-theme="dark"] .wisdom-card-verse { background: #30475d; }
+[data-theme="dark"] .wisdom-card-inspired { background: #41354a; }
 [data-theme="dark"] .wisdom-card-top, [data-theme="dark"] .wisdom-attribution, [data-theme="dark"] .wisdom-translation { color: #afc0d0; }
 [data-theme="dark"] .wisdom-card blockquote, [data-theme="dark"] .web-result-card h2 { color: #e0e8ef; }
 [data-theme="dark"] .reflection-form, [data-theme="dark"] .reflection-card { border-color: #40566c; background: rgba(42,61,80,.82); }
